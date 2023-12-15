@@ -1,6 +1,11 @@
+import os
+from dotenv import load_dotenv
 from typing import Union
-
 from fastapi import FastAPI
+from app.routes import router as api_router
+
+
+load_dotenv()
 
 app = FastAPI()
 
