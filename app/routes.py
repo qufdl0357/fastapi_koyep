@@ -1,5 +1,23 @@
 from fastapi import APIRouter
 from app.model import Input, Output
+from app.utils._LangChain_GetStarted import (
+    _LLM_execute,
+    _ChatModel_execute,
+    _ChatModel_LLMChain_PromptTemplate_execute,
+    _ChatModel_OutputParser_LECL_execute
+)
+
+from app.utils._LECL_Cookbook import (
+    _chatmodel_LECL_Interface_invoke,
+    _ChatModel_LECL_Invoke,
+    _ChatModel_LECL_Parallelism,
+    #_ChatModel_LECL_Retriever_Chain,
+    _ChatModel_LECL_Retriever_Chain_Chroma,
+    _ChatModel_LECL_RAG,
+    _ChatModel_LECL_MultiChain,
+    _ChatModel_LECL_MultiPromptChain,
+    _LCEL_SQL_Query
+)
 
 from app.utils._Prompt_Templates import (
     _Modules_PromptTemplate,
