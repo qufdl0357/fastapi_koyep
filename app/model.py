@@ -12,3 +12,6 @@ class Input(BaseModel):
 
 class Output(BaseModel):
     output: str | list | dict
+
+class Keyword(BaseModel):
+    keyword: str
