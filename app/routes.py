@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from app.model import Input, Output
+from app.model import Input, Output, Keyword
 from app.utils._LangChain_GetStarted import (
     _LLM_execute,
     _ChatModel_execute,
@@ -51,6 +51,9 @@ from app.utils._Retriever import (
     _Modules_MultiQueryRetriever
 )
 
+from app.utils._Vectara_Apify_Crawling import (
+    _Insert_Vectara
+)
 
 router = APIRouter()
 
@@ -156,4 +159,10 @@ async def modules_PyPDFDirectoryLoader(input: Input):
 @router.post("/_modules_MultiQueryRetriever/", response_model=Output)
 async def modules_MultiQueryRetriever(input: Input):
     llm_output = _Modules_MultiQueryRetriever(human_input=input.human_input)
+    return {"output": llm_output}
+
+#_Vectara_Apify_Crawling.py
+@router.post("/_insert_Vectara", response_model=Output)
+async def insert_Vectara(input: Keyword):
+    llm_output = _Insert_Vectara(keyword=input)
     return {"output": llm_output}
