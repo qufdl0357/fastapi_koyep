@@ -28,7 +28,7 @@ def _Insert_Vectara(keyword):
     """
     }
     run = client.actor("apify/google-search-scraper").call(run_input = run_input)
-    loader = client.dataset(run["defaultDatasetID"]).iterate_items()
+    loader = client.dataset(run["defaultDatasetId"]).iterate_items()
     
     temp = list()
     result = list()
