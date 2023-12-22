@@ -164,5 +164,5 @@ async def modules_MultiQueryRetriever(input: Input):
 #_Vectara_Apify_Crawling.py
 @router.post("/_insert_Vectara", response_model=Output)
 async def insert_Vectara(input: Keyword):
-    llm_output = _Insert_Vectara(keyword=input)
+    llm_output = _Insert_Vectara(keyword=input.keyword)
     return {"output": llm_output}
