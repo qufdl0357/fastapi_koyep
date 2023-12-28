@@ -57,6 +57,32 @@ from app.utils._Vectara_Apify_Crawling import (
 
 router = APIRouter()
 
+@router.post("/_llm_execute/", response_model=Output)
+async def llm_execute(input:Input):
+    llm_output = _LLM_execute(human_input=input.human_input)
+    return {"output": llm_output}
+
+@router.post("/_chatModel_execute/", response_model=Output)
+async def chatModel_execute(input:Input):
+    llm_output = _ChatModel_execute(human_input=input.human_input)
+    return {"output": llm_output}
+
+@router.post("/_chatModel_llmChain_promptTemplate_execute/", response_model=Output)
+async def chatModel_llmChain_promptTemplate_execute(input:Input):
+    llm_output = _ChatModel_LLMChain_PromptTemplate_execute(human_input=input.human_input)
+    return {"output": llm_output}
+
+@router.post("/_chatModel_outputParser_LECL_execute/", response_model=Output)
+async def chatModel_outputParser_LECL_execute(input:Input):
+    llm_output = _ChatModel_OutputParser_LECL_execute(human_input=input.human_input)
+    return {"output": llm_output}
+
+@router.post("/_chatModel_LECL_retriever_chain_chroma/", response_model=Output)
+async def chatModel_LECL_retriever_chain_chroma(input:Input):
+    llm_output = _ChatModel_LECL_Retriever_Chain_Chroma(human_input=input.human_input)
+    return {"output": llm_output}
+
+
 #_Prompt_Templates.py
 @router.post("/_modules_PromptTemplate/", response_model=Output)
 async def modules_PromptTemplate(input: Input):
