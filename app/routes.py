@@ -52,7 +52,8 @@ from app.utils._Retriever import (
 )
 
 from app.utils._Vectara_Apify_Crawling import (
-    _Insert_Vectara
+    _Insert_Vectara,
+    _Post_Keyword
 )
 
 router = APIRouter()
@@ -192,3 +193,8 @@ async def modules_MultiQueryRetriever(input: Input):
 async def insert_Vectara(input: Keyword):
     llm_output = _Insert_Vectara(keyword=input.keyword)
     return {"output": llm_output}
+
+@router.post("/_post_Keyword", response_model=Keyword)
+async def post_Keyword(input: Keyword):
+    output = _Post_Keyword(keyword=input.keyword)
+    return {"keyword": output}

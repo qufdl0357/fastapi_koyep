@@ -96,3 +96,7 @@ def _Insert_Vectara(keyword):
 
 
     return "Success Vectara Upload " + keyword
+
+
+def _Post_Keyword(keyword):
+    return keyword
